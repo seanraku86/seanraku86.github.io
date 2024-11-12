@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MyMart</title>
+        <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img src="./resources/img/Logo.png" class="logo" alt="MyMart Logo" /></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><strong>Home</strong></a></li>
+                    <li><a href="#">Meat</a>
+                        <ul>
+                            <li><a href="./beaf.html">Beef (3)</a></li>
+                            <li><a href="./chicken.html">Chicken (4)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Seafood</a>
+                        <ul>
+                            <li><a href="fish.html">Fish (4)</a></li>
+                            <li><a href="shellfish.html">Shellfish (3)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Fruit</a>
+                        <ul>
+                            <li><a href="apple.html">Apple (4)</a></li>
+                            <li><a href="berries.html">Berries (3)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Dairy</a>
+                        <ul>
+                            <li><a href="milk.html">Milk (3)</a></li>
+                            <li><a href="yogurt.html">Yogurt (4)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Drinks</a>
+                        <ul>
+                            <li><a href="juice.html">Juice (3)</a></li>
+                            <li><a href="tea.html">Tea (3)</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-box">
+                        <input type="search" placeholder="Search">
+                        <span class="fas fa-search"></span>
+                    </li>
+                    <li><i id="cart-icon"></i></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <h2 class="cart-title">Your Cart</h2>
+                <div class="cart-content">
+                </div>
+                <div class="total">
+                    <div class="total-title">Total</div>
+                    <div class="total-price">AU$0.00</div>
+                </div>
+                <button type="button" class="btn-checkout" disabled>Checkout</button>
+                <button type="button" class="btn-clearcart">Clear Cart</button>
+                <i class="ri-shopping-cart-2-line" id="close-cart"></i>
+            </div>
+        </header>
+        <main>
+            <section class="product-container">
+                <h2>Berries</h2>
+                <div class="row">
+                    <div class="product">
+                        <img class="product-image" src="./resources/img/blueberry.jpg" alt="Blueberries">
+                        <h3 class="product-title">Blueberries (125g)</h3>
+                        <p class="product-price">AU$8.50</p>
+                        <p>In Stock</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img class="product-image" src="./resources/img/strawberries.jpeg" alt="Strawberries">
+                        <h3 class="product-title">Strawberries (250g)</h3>
+                        <p class="product-price">AU$4.90</p>
+                        <p>In Stock</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img class="product-image" src="./resources/img/Raspberries.jpeg" alt="Raspberries">
+                        <h3 class="product-title">Raspberries (125g)</h3>
+                        <p class="product-price">AU$7.89</p>
+                        <p>In Stock</p>
+                        <button class="add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <dialog id="checkout-box">
+            <div class="checkout-content">
+                <div class="order-details">
+                    <h3 class="order-details-title">Order Confirmation</h2>
+                     <table class="order-details-table">
+                        <thead class="table-title">
+                            <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody class="order-table-body">
+                            <!-- <tr>
+                                <td>Scotch Fillet</td>
+                                <td>AU$27.00</td>
+                                <td>1</td>
+                                <td>AU$27.00</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <form name="order-form" id="order-form" method="dialog">
+                    <h3>Please fill in the order form below:</h3>
+                    <div class="order-form-field">
+                        <label for="name" class="required">Your Name:</label>
+                        <input type="text" name="fname" class="order-fields" required>
+                        <br />
+                        <label for="email" class="required">Email:</label>
+                        <input type="text" name="email" id="email" class="order-fields" required onkeydown="validateEmail()">
+                        <span id="email-check-text"></span>
+                        <br />
+                        <label for="address" class="required">Address:</label>
+                        <input type="text" name="address" class="order-fields" required>
+                        <br />
+                        <label for="suburb" class="required">Suburb:</label>
+                        <input type="text" name="suburb" class="order-fields" required>
+                        <br />
+                        <label for="state" class="required">State:</label>
+                        <input type="text" name="state" class="order-fields" required>
+                        <br />
+                        <label for="country" class="required">Country:</label>
+                        <input type="text" name="country" class="order-fields" required>
+                    </div>
+                    <div class="order-form-button">
+                      <button class="btn-place-order" type="submit">Place Order</button>
+                    </div>
+                </form>
+                <span class="close-checkout">&times;</span>
+            </div>
+        </dialog>
+        <script src="./resources/js/main.js" type="text/javascript"></script>
+    </body>
+</html>
